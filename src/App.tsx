@@ -1,20 +1,17 @@
-import ListGroup from "./components/ListGroup";
 import "./App.css";
+import Alert from "./components/Alert";
+import TestButton from "./components/TestButton";
 
 function App() {
-  let items: string[] = ["NYC", "San Fransisco", "Tokyo", "London", "Mumbai"];
-
-  const handleSelectItem = (item: string) => {
-    console.log(item);
+  const handleButtonPress = (text: string) => {
+    console.log(text);
   };
-
   return (
     <div>
-      <ListGroup
-        items={items}
-        heading="Cities"
-        onSelectItem={handleSelectItem}
-      />
+      <Alert>
+        <span>Hello World</span>
+      </Alert>
+      <TestButton text="Press Me" onButtonPressed={handleButtonPress} />
     </div>
   );
 }
