@@ -3,9 +3,11 @@ import { useState } from "react";
 interface ListGroupProps {
   items: string[];
   heading: string;
+  //(item:string) => void
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ heading, items }: ListGroupProps) {
+function ListGroup({ heading, items, onSelectItem }: ListGroupProps) {
   //Hook, allows us to tap into built in functions
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -23,6 +25,7 @@ function ListGroup({ heading, items }: ListGroupProps) {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
